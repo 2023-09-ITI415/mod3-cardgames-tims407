@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public class Prospector : MonoBehaviour {
 
-	static public Prospector 	S;
+	static public Prospector S;
 
 	[Header("Set in Inspector")]
 	public TextAsset			deckXML;
@@ -31,7 +31,11 @@ public class Prospector : MonoBehaviour {
     public List<CardProspector> tableau;
     public List<CardProspector> discardPile;
     public FloatingScore fsRun;
-    SetUpUITexts();
+
+    void Awake(){
+		S = this;
+        SetUpUITexts();
+    }
     void SetUpUITexts()
     {
         // Set up the HighScore UI Text
@@ -63,12 +67,7 @@ public class Prospector : MonoBehaviour {
         roundResultText.gameObject.SetActive(show);
     }
 
-
-    void Awake(){
-		S = this;
-	}
-
-	void Start() {
+    void Start() {
         Scoreboard.S.score = ScoreManager.SCORE;
 
         deck = GetComponent<Deck> ();
@@ -318,10 +317,19 @@ public class Prospector : MonoBehaviour {
             ScoreManager.EVENT(eScoreEvent.gameWin);
             FloatingScoreHandler(eScoreEvent.gameWin);
         }
-
-        PAGE 845 CONTINUE
         else
         {
+            gameOverText.text = "Game Over";
+            if (ScoreManager.HIGH_SCORE <= score)
+            {
+                string str = "You got the high score!\nHigh score: " + score;
+                roundResultText.text = str;
+            }
+            else
+            {
+                roundResultText.text = "Your final score was: " + score;
+            }
+            ShowResultsUI(true);
             //print("Game Over. You Lost. :(");
             ScoreManager.EVENT(eScoreEvent.gameLoss);
             FloatingScoreHandler(eScoreEvent.gameLoss);
@@ -332,7 +340,7 @@ public class Prospector : MonoBehaviour {
     void ReloadLevel()
     {
         // Reload the scene, resetting the game
-        SceneManager.LoadScene("__Prospector");
+       // SceneManager.LoadScene("__Prospector");
     }
 
 // Return true if the two cards are adjacent in rank (A & K wrap around)
