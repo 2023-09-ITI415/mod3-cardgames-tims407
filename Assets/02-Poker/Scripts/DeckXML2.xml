@@ -1,0 +1,43 @@
+<xml2>
+	<!-- decorators appear on every card. They are the suit and rank in the corners. -->
+	<decorator2 type="letter" x="-1.05" y="1.42" z="0" flip="0" scale="1.25"/>
+	<decorator2 type="suit" x="-1.05" y="1.03" z="0" flip="0" scale="0.6"/>
+	<decorator2 type="letter" x="0" y="-1" z="0" flip="0" scale="2"/>
+	<decorator2 type="suit" x="-0.35" y="-1.25" z="0" flip="0" scale="0.3"/>
+
+	<!-- A list of all cards that defines where pips are placed. -->
+	<card2 rank="1">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="2">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="3">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="4">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="5">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="6">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="7">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="8">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="9">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<card2 rank="10">
+		<pip2 x="0" y="0.35" z="0" flip="0" scale="2.5"/>
+	</card2>
+	<!-- Face cards have no pips, so this references the name of the Sprite to be shown. -->
+	<card2 rank="11" face="FaceCard_11"/>
+	<card2 rank="12" face="FaceCard_12"/>
+	<card2 rank="13" face="FaceCard_13"/>
+</xml2>
