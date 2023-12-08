@@ -20,45 +20,45 @@ public class Layouts : MonoBehaviour
     public PT_XMLReader xmlr2; 
     public PT_XMLHashtable xml2; 
     public Vector2 multiplier;
-    public List<SlotDef2> slotDefs;
+    public List<SlotDef2> slotDefs2;
     public SlotDef2 drawPile;
     public SlotDef2 discardPile;
     public string[] sortingLayerNames = new string[] { "Discard", "Draw" };
-    public void ReadLayout(string xmlText)
+    public void ReadLayout(string xmlText2)
     {
         xmlr2 = new PT_XMLReader();
-        xmlr2.Parse(xmlText);
+        xmlr2.Parse(xmlText2);
         xml2 = xmlr2.xml["xml"][0]; 
         multiplier.x = float.Parse(xml2["multiplier"][0].att("x"));
         multiplier.y = float.Parse(xml2["multiplier"][0].att("y"));
 
-        SlotDef2 tSD;
+        SlotDef2 tSO;
 
         PT_XMLHashList slotsX = xml2["slot"];
         for (int i = 0; i < slotsX.Count; i++)
         {
-            tSD = new SlotDef2();
+            tSO = new SlotDef2();
             if (slotsX[i].HasAtt("type"))
             {
-                tSD.type = slotsX[i].att("type");
+                tSO.type = slotsX[i].att("type");
             }
             else
             {
-                tSD.type = "slot";
+                tSO.type = "slot";
             }
-            tSD.x = float.Parse(slotsX[i].att("x"));
-            tSD.y = float.Parse(slotsX[i].att("y"));
-            tSD.layerID = int.Parse(slotsX[i].att("layer"));
+            tSO.x = float.Parse(slotsX[i].att("x"));
+            tSO.y = float.Parse(slotsX[i].att("y"));
+            tSO.layerID = int.Parse(slotsX[i].att("layer"));
 
-            tSD.layerName = sortingLayerNames[tSD.layerID];
-            switch (tSD.type)
+            tSO.layerName = sortingLayerNames[tSO.layerID];
+            switch (tSO.type)
             {
                 case "drawpile":
-                    tSD.stagger.x = float.Parse(slotsX[i].att("xstagger"));
-                    drawPile = tSD;
+                    tSO.stagger.x = float.Parse(slotsX[i].att("xstagger"));
+                    drawPile = tSO;
                     break;
                 case "discardpile":
-                    discardPile = tSD;
+                    discardPile = tSO;
                     break;
             }
         }

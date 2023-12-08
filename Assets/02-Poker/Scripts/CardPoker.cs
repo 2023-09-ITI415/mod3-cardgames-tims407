@@ -8,9 +8,9 @@ public enum eCardState1
     target,
     discard
 }
-public class CardPoker : Card
+public class CardPoker : Card2
 { 
-    [Header("Set Dynamically: CardProspector")]
+    [Header("Set Dynamically: CardPoker")]
 
 public eCardState1 state = eCardState1.drawpile;
     
