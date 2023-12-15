@@ -18,5 +18,5 @@ public List<CardPoker> hiddenBy = new List<CardPoker>();
     
 public int layoutID;
 
-public SlotDef slotDef;
+public SlotDef2 slotDef2;
 }

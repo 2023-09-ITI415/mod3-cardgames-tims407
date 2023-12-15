@@ -88,7 +88,7 @@ public class Poker : MonoBehaviour
             -tSO.layerID);
             
             ck.layoutID = tSO.id;
-            ck.slotDefs2 = tSO;
+            ck.slotDef2 = tSO;
             
             ck.state = eCardState1.tableau;
             tableau.Add(ck);
